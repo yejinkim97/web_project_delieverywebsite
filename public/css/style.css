@@ -309,7 +309,7 @@ pre {
     margin: 10%;
   }
   .grid2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .fright {
     padding-top: 60px;
@@ -420,7 +420,7 @@ pre {
     width: 85%;
   }
   .grid2 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 /*iPhone 6/7/8 iOS 11*/
@@ -543,7 +543,7 @@ pre {
     font-size: 12px;
   }
   .grid2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .row {
     padding: 0 0;
