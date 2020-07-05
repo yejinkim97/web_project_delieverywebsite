@@ -529,6 +529,7 @@ pre {
   }
   .centered {
     top: 0%;
+    font-size: 30px;
   }
   pre{
     font-size: 27px;
