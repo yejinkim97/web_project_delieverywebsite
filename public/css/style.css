@@ -530,6 +530,9 @@ pre {
   .centered {
     top: 0%;
   }
+  pre{
+    font-size: 27px;
+  }
   h1 {
     font-size: 27px;
   }
