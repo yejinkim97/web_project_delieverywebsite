@@ -1,0 +1,558 @@
+/* Assignment #1 Ye Jin Kim 163291180 */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+.header {
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0 8%;
+  padding: 5px 0;
+}
+.name {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40%;
+  font-family: "Pacifico", cursive;
+}
+.name a {
+  text-decoration: none;
+  color: #eb6383;
+  font-size: 23px;
+}
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+
+  width: 20%;
+}
+ul li {
+  display: inline-block;
+  margin: 0 0 0 9%;
+  font-weight: 500;
+  font-size: 20px;
+}
+ul li a {
+  text-decoration: none;
+  color: grey;
+}
+ul li :hover,
+ul li :active {
+  color: black;
+}
+.menu {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-align: right;
+  margin-left: 120px;
+}
+
+.prep {
+  position: relative;
+  text-align: center;
+  color: #363636;
+}
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-80%, -65%);
+  font-size: 60px;
+  font-family: "Pacifico", cursive;
+}
+.button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: 2px solid #e8015a;
+  color: #e8015a;
+  padding: 10px 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 2vw;
+  font-weight: 500;
+  display: inline-block;
+}
+.button:hover {
+  color: white;
+  background-color: #e8015a;
+}
+main {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.how {
+  margin-left: 70px;
+  color: #204051;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+.grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 6px;
+}
+.prepimg {
+  height: 160px;
+  width: 200px;
+}
+.week {
+  color: #231903;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-bottom: 50px;
+}
+.grid2 {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 6px;
+}
+figure p {
+  color: #900c3f;
+}
+footer {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  background-color: #e7dfd5;
+}
+.footermenu {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+}
+.footermenu ul li {
+  display: block;
+  margin: 8% 0 0 0;
+  font-weight: 500;
+  font-size: 25px;
+}
+.footermenu ul li a {
+  text-decoration: none;
+  color: grey;
+}
+.footermenu ul li :hover {
+  color: black;
+}
+.footerlogo {
+  text-align: center;
+}
+.footerlogo a {
+  text-decoration: none;
+}
+.flogo {
+  width: 50%;
+}
+.flogop {
+  font-family: "Pacifico", cursive;
+  color: #eb6383;
+  font-size: 23px;
+  margin: 0;
+}
+.icon {
+  width: 50px;
+}
+.fright {
+  padding-top: 130px;
+  text-align: end;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: gray;
+  font-size: 18px;
+}
+.text-danger {
+  color: red;
+}
+.container {
+  font-size: 25px;
+  margin: 0 10% 0 10%;
+  text-transform: uppercase;
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 6px;
+}
+.row {
+  float: left;
+
+  padding: 0 50px;
+  margin-top: 30px;
+}
+.form-control {
+  text-align: center;
+  width: 350px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  font-size: 18px;
+  color: gray;
+}
+.button2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: 2px solid #e8015a;
+  border-radius: 10px;
+  color: #e8015a;
+  padding: 10px 10px;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: 500;
+  display: inline-block;
+}
+.button2:hover {
+  color: white;
+  background-color: #e8015a;
+}
+.centered2 {
+  position: absolute;
+  top: 10%;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 101%;
+}
+pre {
+  font-size: 60px;
+  font-family: "Pacifico", cursive;
+  color: seashell;
+}
+.food {
+  width: 260px;
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .name {
+    width: 100%;
+  }
+
+  .menu {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .centered {
+    top: 10%;
+    left: 30%;
+    transform: translate(0%);
+    font-size: 45px;
+  }
+  .prep img {
+    width: 140%;
+  }
+  .button {
+    font-size: 4vw;
+  }
+  .how {
+    margin-left: 0;
+  }
+  .grid {
+    grid-gap: 0;
+  }
+  figure {
+    margin: 10%;
+  }
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fright {
+    padding-top: 60px;
+  }
+  .footermenu ul {
+    padding-left: 0;
+  }
+  pre {
+    font-size: 40px;
+  }
+  .grid3 figure {
+    margin: 0;
+  }
+  .container {
+    margin: 0;
+  }
+  .button2 {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .name {
+    width: 100%;
+  }
+
+  .menu {
+    width: 106%;
+    margin-left: 3%;
+  }
+
+  .centered {
+    top: 10%;
+    left: 30%;
+    transform: translate(0%);
+    font-size: 40px;
+  }
+  .prep img {
+    width: 140%;
+  }
+  .button {
+    font-size: 4vw;
+  }
+  .how {
+    margin-left: 0;
+  }
+  .grid {
+    grid-gap: 0;
+  }
+  figure {
+    margin: 10%;
+  }
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fright {
+    padding-top: 60px;
+  }
+  .footermenu ul {
+    padding-left: 0;
+  }
+  pre {
+    font-size: 40px;
+  }
+  .grid3 figure {
+    margin: 0;
+  }
+  .container {
+    margin: 0;
+  }
+  .button2 {
+    font-size: 2.5vw;
+  }
+}
+
+/*Galaxy S9/S9+ Android 7.0*/
+@media (max-width: 360px) {
+  .header {
+    margin: 0;
+  }
+  .name a {
+    font-size: 19px;
+  }
+  .menu {
+    width: 95%;
+  }
+  ul {
+    padding: 0;
+  }
+  ul li {
+    font-size: 16px;
+    margin: 0 0 0 3%;
+  }
+  .centered {
+    top: 0%;
+    left: 35%;
+    transform: translate(0%);
+    font-size: 25px;
+  }
+
+  .prep img {
+    width: 150%;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  figure {
+    margin: 0;
+  }
+  h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  figure p {
+    font-size: 13px;
+  }
+  .grid2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footerlogo {
+    display: none;
+  }
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footermenu ul li {
+    font-size: 20px;
+  }
+  .fright {
+    padding-top: 0px;
+    font-size: 11px;
+  }
+  .icon {
+    width: 45px;
+    padding: 30px 0 20px 0;
+  }
+  pre {
+    font-size: 20px;
+  }
+  .grid3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .row {
+    padding: 0 20px;
+    margin-top: 10px;
+  }
+  .button2 {
+    font-size: 4vw;
+  }
+  .container {
+    font-size: 20px;
+  }
+  .form-control {
+    width: 300px;
+  }
+}
+@media (max-width: 1280px) {
+  .menu {
+    width: 85%;
+  }
+  .grid2 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/*iPhone 6/7/8 iOS 11*/
+@media (max-width: 415px) {
+  .name a {
+    font-size: 20px;
+  }
+  ul li {
+    font-size: 15px;
+    margin: 0 0 0 3%;
+  }
+  .header {
+    margin: 0 0 0 0;
+  }
+  .centered {
+    font-size: 23px;
+    top: 7%;
+  }
+
+  .button {
+    padding: 2px 5px;
+  }
+  .menu {
+    width: 100%;
+    margin-left: 0;
+  }
+  h1 {
+    font-size: 25px;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  figure p {
+    font-size: 14px;
+    margin: 0;
+  }
+  .prepimg {
+    height: 99px;
+    width: 150px;
+  }
+  figure {
+    margin: 0;
+  }
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .grid2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .grid3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footermenu ul li {
+    font-size: 18px;
+  }
+  .flogop {
+    font-size: 18px;
+  }
+  .fright {
+    padding-top: 10px;
+    font-size: 15px;
+  }
+  .icon {
+    width: 30px;
+  }
+  pre {
+    font-size: 20px;
+  }
+  .row {
+    padding: 0 0;
+  }
+  .container {
+    font-size: 20px;
+  }
+}
+@media (max-width: 960px) {
+  .header {
+    margin: 0 0;
+  }
+  figure {
+    margin: 3%;
+  }
+}
+
+@media (max-width: 320px) {
+  .name a {
+    font-size: 17px;
+  }
+  ul li {
+    font-size: 14px;
+  }
+  .prep img {
+    width: 170%;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: 100%;
+    margin-left: 0;
+  }
+  ul li {
+    margin: 0 0 0 3%;
+  }
+  .centered {
+    top: 0%;
+  }
+  h1 {
+    font-size: 27px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  figure {
+    margin: 0;
+  }
+  figure p {
+    font-size: 12px;
+  }
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .row {
+    padding: 0 0;
+  }
+}
+/*dashboard page*/
+.dashboard{
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(71, 67, 67);
+font-size: 40px;
+}

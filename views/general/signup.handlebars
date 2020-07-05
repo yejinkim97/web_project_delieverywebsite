@@ -1,0 +1,78 @@
+<!-- Assignment #1 Ye Jin Kim 163291180 -->
+<div style="padding-top: 30px;
+padding-bottom: 50px; background-color:#e7dfd5;">
+    <div class="container">
+        <h1>Sign up</h1>
+        {{#each errorMessages}}
+        <div style="text-align: center; color:red; font-size:16px">{{this}}</div>
+        {{/each}}
+        <div class="grid3">
+            <figure>
+                <div class="fright" style="text-align:center; padding-top:0">
+                    <div class="row" style="text-align: center;">
+                        <a style="text-decoration: none;" href="https://www.facebook.com/">
+                            <img class="icon" src="/img/facebook.png" alt="facebook">
+                            <div class="button2">Sign up with facebook</div>
+                        </a></div>
+                    <div class="row" style="text-align: center;">
+                        <a style="text-decoration: none;" href="https://www.instagram.com/">
+                            <img class="icon" src="/img/instagram.png" alt="instagram">
+                            <div class="button2">Sign up with instagram</div>
+                        </a></div>
+                </div>
+            </figure>
+            <figure>
+                <form method="POST">
+                    <div class="row">
+                        <label for="email">
+                            <span class="text-danger">*</span> Email Address</label>
+                        <input id="email" placeholder="id@example.com" class="form-control" name="email"
+                            autocomplete="email" type="email" tabindex="1">
+                    </div>
+                    <div class="row">
+                        <label for="username">
+                            <span class="text-danger">*</span> Username</label>
+                        <input id="username" placeholder="Enter Username" class="form-control" name="username"
+                            type="text" tabindex="2">
+                    </div>
+                    <div class="row">
+                        <label for="Password">
+                            <span class="text-danger">*</span> Password</label>
+                        <input id="password" placeholder="**************" class="form-control" name="Password"
+                            type="password" tabindex="3" size=32>
+                    </div>
+                    <div class="row">
+                        <label for="Password"><span class="text-danger">*</span> Password Confirm</label>
+                        <div style="text-align:right;">
+                            <input id="cpassword" placeholder="**************" class="form-control" name="cPassword"
+                                type="password" tabindex="4" size=32></div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <style>
+                            #btn {
+                                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                                border: 2px solid #e8015a;
+                                border-radius: 10px;
+                                color: #e8015a;
+                                padding: 10px 10px;
+                                margin-top: 5px;
+                                text-align: center;
+                                font-size: 1.5vw;
+                                font-weight: 500;
+                                display: inline-block;
+                                background-color: #e7dfd5;
+                            }
+
+                            #btn:hover[type="submit"] {
+                                color: white;
+                                background: #e8015a;
+                                
+                            }
+                        </style>
+                        <input type="submit" value="Create new account" id="btn">
+                    </div>
+                </form>
+            </figure>
+        </div>
+    </div>
+</div>

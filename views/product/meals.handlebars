@@ -1,0 +1,23 @@
+<!-- Assignment #1 Ye Jin Kim 163291180 -->
+<div class="prep">
+    <img src="/img/prp.jpg" alt="prep" />
+    <div class="centered2">
+        <pre>OUR MEAL PACKAGES 
+Pick a package,
+ choose your meals,achieve your goal</pre>
+    </div>
+</div>
+<div class="week">
+
+    <div class="grid2">
+        {{#each package}}
+        <figure>
+            <img class="food" src={{this.img}} alt={{this.alt}} />
+            <h3>{{this.title}}</h3>
+            <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
+        </figure>
+        {{/each}}
+
+    </div>
+
+</div>

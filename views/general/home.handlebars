@@ -1,0 +1,52 @@
+<div class="prep">
+  <img src="/img/prp.jpg" alt="prep" />
+  <div class="centered">
+    All delivered <br />healthy and fresh<br />
+    to your door <br />
+    <div style="text-align: center;">
+      <a style="text-decoration: none;" href="/signup">
+        <div class="button">Sign Up!</div>
+      </a></div>
+  </div>
+</div>
+<h1>How it works?</h1>
+<div class="how">
+
+  <div class="grid">
+    {{#each how}}
+    <figure>
+      <img class="prepimg" src={{this.src}} alt={{this.alt}} />
+      <h2>{{this.h2}}</h2>
+      <p>
+        {{this.p1}}<br>{{this.p2}}
+      </p>
+    </figure>
+    {{/each}}
+  </div>
+</div>
+<div class="week">
+  <h1><br>Top Meal Packages This Week</h1>
+  <div class="grid2">
+   <!-- {{#each product}}
+    <figure>
+      <img  src={{this.img}} alt={{this.alt}} />
+      <h3>{{this.title}}</h3>
+      <p>{{this.price}}</p>
+    </figure>
+    {{/each}} -->
+    {{#each package}}
+    {{#if this.top}}
+    <figure>
+      <img class="food" src={{this.img}} alt={{this.alt}} />
+      <h3>{{this.title}}</h3>
+      <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
+    </figure>
+    {{/if}}
+    {{/each}} 
+
+  </div>
+  <div style="text-align: center;">
+    <a style="text-decoration: none;" href="/product/meals">
+      <div class="button">Check out new packages!</div>
+    </a></div>
+</div>
