@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { hows, packages } = require("../models/data");
-
+const data= require("../models/data");
 
 router.get("/", (req, res) => {
   const fakehow = new hows();

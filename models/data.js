@@ -20,6 +20,33 @@
     }
 }
 */
+
+const mongoose = require("mongoose");
+const initialize = function () {
+  return new Promise((resolve, reject) => {
+    let db = mongoose.createConnection(
+      "mongodb+srv://yjkim33:5edsDTECDJImaa4G@senecaweb.3ndwz.mongodb.net/web322_week8?retryWrites=true&w=majority",
+      { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+
+    db.on("error", (err) => {
+      console.log("error");
+      reject(err);
+    });
+
+    db.once("open", () => {
+
+      // video from 50:12, he explains about as3, it is very similar to what he showed in the video  ("https://web.microsoftstream.com/video/a8c97005-ab0a-48d3-a773-7553af61c313?list=user&userId=18b626cb-01ce-48fc-8538-6589772e2e4f")
+      // check course note and code example
+      // and then https://web.microsoftstream.com/video/a7d000e8-d715-4f27-8d0f-61bef2db9184?list=user&userId=18b626cb-01ce-48fc-8538-6589772e2e4f
+      console.log("connected");
+      resolve();
+    });
+  });
+};
+
+
+
 class hows {
   how = [];
 
@@ -149,4 +176,4 @@ class packages {
     return this.package;
   }
 }
-module.exports = { hows, packages };
+module.exports = { hows, packages, initialize };
