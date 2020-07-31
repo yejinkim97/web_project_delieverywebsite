@@ -22,7 +22,7 @@ padding-bottom: 50px; background-color:#e7dfd5;">
                 </div>
             </figure>
             <figure>
-                <form method="POST">
+                <form method="POST" action="/signup">
                     <div class="row">
                         <label for="email">
                             <span class="text-danger">*</span> Email Address</label>
@@ -36,16 +36,36 @@ padding-bottom: 50px; background-color:#e7dfd5;">
                             type="text" tabindex="2">
                     </div>
                     <div class="row">
-                        <label for="Password">
-                            <span class="text-danger">*</span> Password</label>
-                        <input id="password" placeholder="**************" class="form-control" name="Password"
-                            type="password" tabindex="3" size=32>
+                        <label for="fname">
+                            <span class="text-danger">*</span> First name</label>
+                        <input id="fname" placeholder="Enter First name" class="form-control" name="fname" type="text"
+                            tabindex="3">
                     </div>
                     <div class="row">
-                        <label for="Password"><span class="text-danger">*</span> Password Confirm</label>
+                        <label for="lname">
+                            <span class="text-danger">*</span> Last name</label>
+                        <input id="lname" placeholder="Enter Last name" class="form-control" name="lname" type="text"
+                            tabindex="4">
+                    </div>
+                    <div class="row">
+                        <label for="password">
+                            <span class="text-danger">*</span> Password</label>
+                        <input id="password" placeholder="**************" class="form-control" name="password"
+                            type="password" tabindex="5" size=32>
+                    </div>
+                    <div class="row">
+                        <label for="cpassword"><span class="text-danger">*</span> Password Confirm</label>
                         <div style="text-align:right;">
-                            <input id="cpassword" placeholder="**************" class="form-control" name="cPassword"
-                                type="password" tabindex="4" size=32></div>
+                            <input id="cpassword" placeholder="**************" class="form-control" name="cpassword"
+                                type="password" tabindex="6" size=32></div>
+                    </div>
+                    <div class="row">
+
+
+                        <label for="customer">Customer:</label>
+                        <input class="form-control" type="checkbox" name="customer" />
+
+
                     </div>
                     <div class="row" style="text-align: center;">
                         <style>
@@ -66,7 +86,7 @@ padding-bottom: 50px; background-color:#e7dfd5;">
                             #btn:hover[type="submit"] {
                                 color: white;
                                 background: #e8015a;
-                                
+
                             }
                         </style>
                         <input type="submit" value="Create new account" id="btn">

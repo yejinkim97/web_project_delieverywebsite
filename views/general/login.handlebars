@@ -3,7 +3,7 @@
 padding-bottom: 50px; background-color:#e7dfd5;">
     <div class="container">
         <h1>Login</h1>
-          {{#each errorMessages}}
+        {{#each errorMessages}}
         <div style="text-align: center; color:red; font-size:16px">{{this}}</div>
         {{/each}}
         <div class="grid3">
@@ -22,17 +22,17 @@ padding-bottom: 50px; background-color:#e7dfd5;">
                 </div>
             </figure>
             <figure>
-                <form method="POST">
+                <form method="POST" action="/login">
                     <div class="row">
                         <label for="username">
                             <span class="text-danger">*</span> Username</label>
                         <input id="username" placeholder="Enter Username" class="form-control" name="username"
-                            type="text" tabindex="2" >
+                            type="text" tabindex="2">
                     </div>
                     <div class="row">
                         <label for="Password">
                             <span class="text-danger">*</span> Password</label>
-                        <input id="password" placeholder="**************" class="form-control" name="Password"
+                        <input id="password" placeholder="**************" class="form-control" name="password"
                             type="password" tabindex="3" size=32>
                     </div>
                     <div class="row" style="text-align: center;">
@@ -57,7 +57,7 @@ padding-bottom: 50px; background-color:#e7dfd5;">
 
                             }
                         </style>
-                        <input type="submit" value="Create new account" id="btn">
+                        <input type="submit" value="Login" id="btn">
                     </div>
                 </form>
             </figure>
