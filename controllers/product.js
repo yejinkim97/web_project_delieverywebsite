@@ -20,7 +20,8 @@ function ensureAdmin(req, res, next) {
   }
 }
 
-router.get("/meals/addPackages",ensureAdmin, (req,res)=>{
+router.get("/addpackages",ensureAdmin, (req,res)=>{
+
   res.render("product/addpackages",{
     title: "Healthy & Fresh Meals"
   })

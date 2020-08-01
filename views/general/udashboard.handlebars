@@ -1,4 +1,8 @@
 <section class = "dashboard">
     Hello, {{user.fname}} {{user.lname}} <br><br> 
-    <a href="/logout" class="button" style="text-decoration:none;">Logout</a>
+    {{#unless user.customer}}
+    <a href="/product/addpackages" class="button"style="text-decoration:none;">Create Meal Packages</a><br> 
+    {{/unless}}
+    <a href="/logout" class="button" style="text-decoration:none;">Logout</a><br>
+   
 </section>
