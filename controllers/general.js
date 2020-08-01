@@ -97,6 +97,8 @@ function ensureLogin(req, res, next) {
     next();
   }
 }
+
+
 router.get("/cdashboard", ensureLogin, (req, res) => {
   res.render("general/cdashboard", {
     title: "Healthy & Fresh welcome",

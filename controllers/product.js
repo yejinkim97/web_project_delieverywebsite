@@ -12,4 +12,19 @@ router.get("/meals", (req, res) => {
   });
 });
 
+function ensureAdmin(req, res, next) {
+  if (!req.session.user || req.session.user.customer) {
+    res.redirect("/login");
+  } else {
+    next();
+  }
+}
+
+router.get("/meals/addPackages",ensureAdmin, (req,res)=>{
+  res.render("product/addpackages",{
+    title: "Healthy & Fresh Meals"
+  })
+
+})
+
 module.exports = router;
