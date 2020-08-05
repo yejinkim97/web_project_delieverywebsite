@@ -2,7 +2,7 @@
 
 <div style="padding-top: 30px;
 padding-bottom: 50px; background-color:#e7dfd5;">
-    <div class="container" style="margin: 0 20% 0 20%; text-align:right">
+    <div class="container" style="margin: 0 20% 0 20%; ">
         <h1>Edit Meal Package</h1>
         {{#each errorMessages}}
         <div style="text-align: center; color:red; font-size:16px">{{this}}</div>
@@ -20,6 +20,7 @@ padding-bottom: 50px; background-color:#e7dfd5;">
                         : <span class="text-danger">{{data.name}}</span>
                     </div>
                     <div class="row add">
+                        
                         <label for="price">
                             <span class="text-danger">*</span> Price</label>
                         <input id="price" value="{{data.price}}" class="form-control" name="price" type="text"

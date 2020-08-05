@@ -96,7 +96,7 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
 
 router.get("/delete", (req, res) => {
   if (req.query.name) {
-    fakepackage.delete(req.query.title);
+    
     deletemeal(req.query.name)
       .then(() => {
         res.redirect("/udashboard");
