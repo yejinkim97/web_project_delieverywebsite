@@ -159,6 +159,52 @@ const getDataMeal = function (data) {
   });
 };
 
+const getMeal = function (inname) {
+  return new Promise((resolve, reject) => {
+    mealPackages
+      .find({ name: inname })
+      .exec()
+      .then((retur) => {
+        if (retur.length != 0) resolve(retur.map((item) => item.toObject()));
+        else reject("No meals found");
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(err);
+      });
+  });
+};
+
+const editMeal = (editData) => {
+  return new Promise((resolve, reject) => {
+    editData.top = editData.top ? true : false;
+
+    mealPackages
+      .updateOne(
+        { name: editData.name },
+        {
+          $set: {
+            name: editData.name,
+            price: editData.price,
+            top: editData.top,
+            description: editData.description,
+            category: editData.category,
+            numOfMeal: editData.numOfMeal,
+          },
+        }
+      )
+      .exec()
+      .then(() => {
+        console.log(`${editData.name} has been updated`);
+        resolve();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  }).catch(() => {
+    reject(" error");
+  });
+};
 const addPackage = function (data) {
   return new Promise((resolve, reject) => {
     data.top = data.top ? true : false;
@@ -181,7 +227,8 @@ const addPackage = function (data) {
 };
 const deletemeal = function (inname) {
   return new Promise((resolve, reject) => {
-    mealPackages.deleteOne({ name: inname })
+    mealPackages
+      .deleteOne({ name: inname })
       .exec() //run as a promise
       .then(() => {
         resolve();
@@ -202,4 +249,6 @@ module.exports = {
   save,
   validateUser,
   deletemeal,
+  getMeal,
+  editMeal,
 };

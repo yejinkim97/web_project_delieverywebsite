@@ -3,7 +3,13 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 
-const { addPackage, getDataMeal, deletemeal } = require("../models/db");
+const {
+  addPackage,
+  getDataMeal,
+  deletemeal,
+  getMeal,
+  editMeal,
+} = require("../models/db");
 
 const storage = multer.diskStorage({
   destination: "./public/img/",
@@ -24,8 +30,6 @@ const upload = multer({ storage: storage, fileFilter: imageFilter });
 
 // fix database files and finish the router and as4
 router.get("/meals", (req, res) => {
-
-
   getDataMeal()
     .then((data) => {
       res.render("product/meals", {
@@ -53,10 +57,8 @@ router.get("/addpackages", ensureAdmin, (req, res) => {
   });
 });
 router.get("/view", ensureAdmin, (req, res) => {
-
   getDataMeal().then((data) => {
     res.render("product/view", {
-
       add: data.length != 0 ? data : undefined,
       title: "Healthy & Fresh Meals",
     });
@@ -73,7 +75,6 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
       getDataMeal()
         .then((data) => {
           res.render("product/meals", {
-      
             add: data.length != 0 ? data : undefined,
             title: "Healthy & Fresh Meals",
           });
@@ -94,27 +95,23 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
 });
 
 router.get("/delete", (req, res) => {
-
-  if (req.query.name ) {
+  if (req.query.name) {
     fakepackage.delete(req.query.title);
     deletemeal(req.query.name)
-      .then(()=>{
-        res.redirect("/udashboard")
+      .then(() => {
+        res.redirect("/udashboard");
       })
-      
+
       .catch((err) => {
         console.log(err);
         res.redirect("/");
       });
-  }
-
-  else {
+  } else {
     console.log("No Query");
     let errors = [];
     errors.push("Error occur");
     getDataMeal().then((data) => {
       res.render("product/view", {
-        
         add: data.length != 0 ? data : undefined,
         errorMessages: errors,
         title: "Healthy & Fresh Meals",
@@ -123,28 +120,28 @@ router.get("/delete", (req, res) => {
   }
 });
 
+router.get("/edit", (req, res) => {
+  if (req.query.name) {
+    getMeal(req.query.name)
+      .then((result) => {
+        res.render("product/edit", { data: result[0] });
+      })
+      .catch(() => {
+        console.log("couldn't find");
+        res.redirect("/");
+      });
+  } else res.redirect("/udashboard");
+});
 
-router.get("/edit",(req,res)=>{
-  if (req.query.name || req.query.title){ 
-    db.getStudentsByEmail(req.query.email).then((students)=>{
-      res.render("EditStudent", {data:students[0]}); //using [0] because students is an array
-    }).catch(()=>{
-      console.log("couldn't find the student");
+router.post("/edit", (req, res) => {
+  editMeal(req.body)
+    .then(() => {
+      res.redirect("/udashboard");
+    })
+    .catch((err) => {
+      console.log(err);
       res.redirect("/");
     });
-  }
-  else
-    res.redirect("/students");
 });
-
-router.post("/students/edit",(req,res)=>{
-    db.editStudent(req.body).then(()=>{
-      res.redirect("/students");
-    }).catch((err)=>{
-      console.log(err);
-      res.redirect("/students");
-    })
-});
-
 
 module.exports = router;
