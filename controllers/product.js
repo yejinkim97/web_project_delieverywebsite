@@ -137,6 +137,7 @@ router.post("/edit", (req, res) => {
   editMeal(req.body)
     .then(() => {
       res.redirect("/udashboard");
+      console.log(`edit complete`);
     })
     .catch((err) => {
       console.log(err);

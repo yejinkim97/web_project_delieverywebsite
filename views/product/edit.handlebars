@@ -12,12 +12,11 @@ padding-bottom: 50px; background-color:#e7dfd5;">
 ">
 
             <figure>
-                <form method="POST" action="/product/edit" >
+                <form method="POST" action="/product/edit">
                     <div class="row add">
                         <label for="name">
                             <span class="text-danger">*</span> Meal Package Name</label>
-                        <input id="name" value="{{data.name}}" class="form-control" name="name" type="text"
-                            tabindex="1">
+                        : <span class="text-danger">{{data.name}}</span>
                     </div>
                     <div class="row add">
                         <label for="price">

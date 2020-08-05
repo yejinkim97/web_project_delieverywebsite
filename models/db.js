@@ -184,12 +184,11 @@ const editMeal = (editData) => {
         { name: editData.name },
         {
           $set: {
-            name: editData.name,
             price: editData.price,
-            top: editData.top,
             description: editData.description,
             category: editData.category,
             numOfMeal: editData.numOfMeal,
+            top: editData.top,
           },
         }
       )
