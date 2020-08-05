@@ -10,18 +10,19 @@ Pick a package,
 <div class="week">
 
     <div class="grid2">
+        <!--
         {{#each package}}
         <figure>
             <img class="food" src={{this.img}} alt={{this.alt}} />
             <h3>{{this.title}}</h3>
             <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
         </figure>
-        {{/each}}
+        {{/each}} -->
         {{#each add}}
         <figure>
             <img class="food" src="/img/{{this.img}}"  />
             <h3>{{this.name}}</h3>
-            <p>{{this.description}}<br><b><i>{{this.price}}</i></b></p>
+            <p>{{this.description}}<br><b><i>from ${{this.price}}</i></b></p>
         </figure>
         {{/each}}
 

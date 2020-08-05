@@ -19,8 +19,8 @@
         return this.product;
     }
 }
-*/
 
+*/
 class hows {
   how = [];
 
@@ -52,6 +52,7 @@ class hows {
     return this.how;
   }
 }
+/*
 class packages {
   package = [];
 
@@ -160,5 +161,5 @@ class packages {
 
 }
 
-
-module.exports = { hows, packages };
+*/
+module.exports = { hows };

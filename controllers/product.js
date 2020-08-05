@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { hows, packages } = require("../models/data");
 const path = require("path");
 const multer = require("multer");
 
@@ -25,12 +24,11 @@ const upload = multer({ storage: storage, fileFilter: imageFilter });
 
 // fix database files and finish the router and as4
 router.get("/meals", (req, res) => {
-  const fakepackage = new packages();
+
 
   getDataMeal()
     .then((data) => {
       res.render("product/meals", {
-        package: fakepackage.getpackage(),
         add: data.length != 0 ? data : undefined,
         title: "Healthy & Fresh Meals",
       });
@@ -55,11 +53,10 @@ router.get("/addpackages", ensureAdmin, (req, res) => {
   });
 });
 router.get("/view", ensureAdmin, (req, res) => {
-  const fakepackage = new packages();
 
   getDataMeal().then((data) => {
     res.render("product/view", {
-      package: fakepackage.getpackage(),
+
       add: data.length != 0 ? data : undefined,
       title: "Healthy & Fresh Meals",
     });
@@ -72,12 +69,11 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
   addPackage(req.body)
     .then(() => {
       console.log("add then ");
-      const fakepackage = new packages();
 
       getDataMeal()
         .then((data) => {
           res.render("product/meals", {
-            package: fakepackage.getpackage(),
+      
             add: data.length != 0 ? data : undefined,
             title: "Healthy & Fresh Meals",
           });
@@ -98,8 +94,8 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
 });
 
 router.get("/delete", (req, res) => {
-  const fakepackage = new packages();
-  if (req.query.name || req.query.title) {
+
+  if (req.query.name ) {
     fakepackage.delete(req.query.title);
     deletemeal(req.query.name)
       .then(()=>{
@@ -111,29 +107,14 @@ router.get("/delete", (req, res) => {
         res.redirect("/");
       });
   }
-/*
-  if (req.query.title) {
-    fakepackage.delete(req.query.title);
-    getDataMeal()
-      .then((data) => {
-        res.render("product/view", {
-          package: fakepackage.getpackage(),
-          add: data.length != 0 ? data : undefined,
-          title: "Healthy & Fresh Meals",
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.redirect("/");
-      });
-  } */
+
   else {
     console.log("No Query");
     let errors = [];
     errors.push("Error occur");
     getDataMeal().then((data) => {
       res.render("product/view", {
-        package: fakepackage.getpackage(),
+        
         add: data.length != 0 ? data : undefined,
         errorMessages: errors,
         title: "Healthy & Fresh Meals",
@@ -141,5 +122,29 @@ router.get("/delete", (req, res) => {
     });
   }
 });
+
+
+router.get("/edit",(req,res)=>{
+  if (req.query.name || req.query.title){ 
+    db.getStudentsByEmail(req.query.email).then((students)=>{
+      res.render("EditStudent", {data:students[0]}); //using [0] because students is an array
+    }).catch(()=>{
+      console.log("couldn't find the student");
+      res.redirect("/");
+    });
+  }
+  else
+    res.redirect("/students");
+});
+
+router.post("/students/edit",(req,res)=>{
+    db.editStudent(req.body).then(()=>{
+      res.redirect("/students");
+    }).catch((err)=>{
+      console.log(err);
+      res.redirect("/students");
+    })
+});
+
 
 module.exports = router;

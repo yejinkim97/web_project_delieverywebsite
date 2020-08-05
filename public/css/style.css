@@ -127,9 +127,9 @@ footer {
 }
 .footermenu ul li {
   display: block;
-  margin: 8% 0 0 0;
+  margin: 4% 0 0 0;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
 }
 .footermenu ul li a {
   text-decoration: none;
@@ -145,7 +145,7 @@ footer {
   text-decoration: none;
 }
 .flogo {
-  width: 50%;
+  width: 35%;
 }
 .flogop {
   font-family: "Pacifico", cursive;

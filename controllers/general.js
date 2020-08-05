@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { hows, packages } = require("../models/data");
+const { hows} = require("../models/data");
 
 const bcrypt = require("bcryptjs");
 const session = require("client-sessions");
@@ -18,11 +18,11 @@ const { addPackage, getDataMeal } = require("../models/db");
 router.get("/", (req, res) => {
   const fakehow = new hows();
 
-  const fakepackage = new packages();
+  
   getDataMeal()
   .then((data) => {
   res.render("general/home", {
-    package: fakepackage.getpackage(),
+
     how: fakehow.gethow(),
     add: data.length != 0 ? data : undefined,
     title: "Healthy & Fresh",
