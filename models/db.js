@@ -192,7 +192,7 @@ const editMeal = (editData) => {
           },
         }
       )
-      .exec()
+      //.exec()
       .then(() => {
         console.log(`${editData.name} has been updated`);
         resolve();

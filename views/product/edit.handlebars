@@ -13,6 +13,7 @@ padding-bottom: 50px; background-color:#e7dfd5;">
 
             <figure>
                 <form method="POST" action="/product/edit">
+                <input type="hidden"id="name" name="name" value="{{data.name}}"  />
                     <div class="row add">
                         <label for="name">
                             <span class="text-danger">*</span> Meal Package Name</label>
