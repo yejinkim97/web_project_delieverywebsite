@@ -1,0 +1,44 @@
+<div style="text-align: center;">
+    <a href="/product/addpackages" class="button" style="text-decoration:none;">Create new Meal Packages</a><br>
+    {{#each errorMessages}}
+    <div style="text-align: center; color:red; font-size:16px">{{this}}</div>
+    {{/each}}
+</div>
+
+<div class="week">
+
+    <div class="grid2">
+        {{#each package}}
+        <figure>
+            <img class="food" src={{this.img}} alt={{this.alt}} />
+            <h3>{{this.title}}</h3>
+            <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
+
+            <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/edit?title={{title}}"
+                class="btn btn-primary">Edit</a>
+
+
+            <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/delete?title={{title}}"
+                class="btn btn-primary">Delete</a>
+
+        </figure>
+        {{/each}}
+        {{#each add}}
+        <figure>
+            <img class="food" src="/img/{{this.img}}" />
+            <h3>{{this.name}}</h3>
+            <p>{{this.description}}<br><b><i>{{this.price}}</i></b></p>
+
+            <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/edit?name={{name}}"
+                class="btn btn-primary">Edit</a>
+
+
+            <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/delete?name={{name}}"
+                class="btn btn-primary">Delete</a>
+
+        </figure>
+        {{/each}}
+
+    </div>
+
+</div>

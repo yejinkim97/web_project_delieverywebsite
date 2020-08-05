@@ -149,5 +149,16 @@ class packages {
   getpackage() {
     return this.package;
   }
+  delete(data){
+    for(let i= this.package.length-1; i>=0; --i){
+      if(this.package[i].title == data){
+        this.package.splice(i,1);
+      }
+    }
+    return this.package;
+  }
+
 }
+
+
 module.exports = { hows, packages };

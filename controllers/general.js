@@ -9,21 +9,24 @@ router.use(
   session({
     cookieName: "session", 
     secret: `${process.env.SECRET_SESSION}`, 
-    duration: 2 * 60 * 1000, 
+    duration: 5 * 60 * 1000, 
     activeDuration: 1000 * 60,
   })
 );
 const db = require("../models/db");
-
+const { addPackage, getDataMeal } = require("../models/db");
 router.get("/", (req, res) => {
   const fakehow = new hows();
 
   const fakepackage = new packages();
+  getDataMeal()
+  .then((data) => {
   res.render("general/home", {
     package: fakepackage.getpackage(),
     how: fakehow.gethow(),
+    add: data.length != 0 ? data : undefined,
     title: "Healthy & Fresh",
-  });
+  });})
 });
 
 router.get("/signup", (req, res) => {
@@ -153,5 +156,8 @@ router.post("/login", (req, res) => {
       });
   }
 });
+
+
+
 
 module.exports = router;

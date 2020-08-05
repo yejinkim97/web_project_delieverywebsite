@@ -27,7 +27,7 @@
 <div class="week">
   <h1><br>Top Meal Packages This Week</h1>
   <div class="grid2">
-   <!-- {{#each product}}
+    <!-- {{#each product}}
     <figure>
       <img  src={{this.img}} alt={{this.alt}} />
       <h3>{{this.title}}</h3>
@@ -42,7 +42,16 @@
       <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
     </figure>
     {{/if}}
-    {{/each}} 
+    {{/each}}
+    {{#each add}}
+    {{#if this.top}}
+    <figure>
+      <img class="food" src="/img/{{this.img}}" />
+      <h3>{{this.name}}</h3>
+      <p>{{this.description}}<br><b><i>{{this.price}}</i></b></p>
+    </figure>
+    {{/if}}
+    {{/each}}
 
   </div>
   <div style="text-align: center;">

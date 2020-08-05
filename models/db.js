@@ -28,8 +28,40 @@ let users = new Schema({
   customer: Boolean,
 });
 
+let mealPackage = new Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  price: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  numOfMeal: {
+    type: Number,
+    required: true,
+  },
+  top: {
+    type: Boolean,
+  },
+  img: {
+    type: String,
+    required: true,
+  },
+});
+
 mongoose.set("useCreateIndex", true);
 let Users;
+let mealPackages;
 
 const initialize = function () {
   return new Promise((resolve, reject) => {
@@ -45,6 +77,7 @@ const initialize = function () {
 
     db.once("open", () => {
       Users = db.model("datas", users);
+      mealPackages = db.model("packages", mealPackage);
 
       console.log("connected");
       resolve();
@@ -69,6 +102,7 @@ users.pre("save", function (next) {
 const save = function (data) {
   return new Promise((resolve, reject) => {
     data.customer = data.customer ? true : false;
+    data.top = data.top ? true : false;
     let user = new Users(data);
     user.save((err) => {
       if (err) {
@@ -110,6 +144,62 @@ const validateUser = function (data) {
     }
   });
 };
+const getDataMeal = function (data) {
+  return new Promise((resolve, reject) => {
+    mealPackages
+      .find()
+      .exec()
+      .then((retMeals) => {
+        resolve(retMeals.map((item) => item.toObject()));
+      })
+      .catch((err) => {
+        console.log(err);
+        reject(err);
+      });
+  });
+};
 
+const addPackage = function (data) {
+  return new Promise((resolve, reject) => {
+    data.top = data.top ? true : false;
+    for (var formEntry in data) {
+      if (data[formEntry] == "") data[formEntry] = null;
+    }
+
+    var newPackage = new mealPackages(data);
+
+    newPackage.save((err) => {
+      if (err) {
+        console.log("Woopsie there was an error: " + err);
+        reject(err);
+      } else {
+        console.log("Saved that student: " + data.name);
+        resolve();
+      }
+    });
+  });
+};
+const deletemeal = function (inname) {
+  return new Promise((resolve, reject) => {
+    mealPackages.deleteOne({ name: inname })
+      .exec() //run as a promise
+      .then(() => {
+        resolve();
+      })
+      .catch(() => {
+        reject(); //maybe a problem communicating with server
+      });
+  });
+};
 const userModel = mongoose.model("users", users);
-module.exports = { userModel, initialize, save, validateUser };
+const mealModel = mongoose.model("mealPackage", mealPackage);
+module.exports = {
+  userModel,
+  mealModel,
+  getDataMeal,
+  addPackage,
+  initialize,
+  save,
+  validateUser,
+  deletemeal,
+};

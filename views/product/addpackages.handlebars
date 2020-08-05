@@ -1,0 +1,83 @@
+<!-- Assignment #1 Ye Jin Kim 163291180 -->
+
+<div style="padding-top: 30px;
+padding-bottom: 50px; background-color:#e7dfd5;">
+    <div class="container" style="margin: 0 20% 0 20%; text-align:right">
+        <h1>Add Meal Package</h1>
+        {{#each errorMessages}}
+        <div style="text-align: center; color:red; font-size:16px">{{this}}</div>
+        {{/each}}
+        <div class="grid3" style="
+	grid-template-columns: repeat(1, 1fr);
+">
+
+            <figure>
+                <form method="POST" action="/product/add" enctype="multipart/form-data">
+                    <div class="row add">
+                        <label for="name">
+                            <span class="text-danger">*</span> Meal Package Name</label>
+                        <input id="name" class="form-control" name="name" type="text" tabindex="1">
+                    </div>
+                    <div class="row add">
+                        <label for="price">
+                            <span class="text-danger">*</span> Price</label>
+                        <input id="price" class="form-control" name="price" type="text" tabindex="2">
+                    </div>
+                    <div class="row add">
+                        <label for="description">
+                            <span class="text-danger">*</span> Description</label>
+                        <input id="description" class="form-control" name="description" type="text" tabindex="3">
+                    </div>
+                    <div class="row add">
+                        <label for="category">
+                            <span class="text-danger">*</span> Category</label>
+                        <input id="category" class="form-control" name="category" type="text" tabindex="4">
+                    </div>
+                    <div class="row add">
+                        <label for="numOfMeal">
+                            <span class="text-danger">*</span> Number of Meals</label>
+                        <input id="numOfMeal" class="form-control" name="numOfMeal" type="number" tabindex="5">
+                    </div>
+                    <div class="row add">
+
+
+                        <label for="top">Top meal? </label>
+                        <input class="form-control" type="checkbox" name="top" tabindex="6" />
+
+
+                    </div>
+                    <div class="row add">
+                        <label for="img">
+                            <span class="text-danger">*</span> Image</label>
+                        <input id="img" class="form-control" name="img" type="file" tabindex="6">
+                    </div>
+
+                    <div class="row" style="text-align: center;">
+                        <style>
+                            #btn {
+                                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                                border: 2px solid #e8015a;
+                                border-radius: 10px;
+                                color: #e8015a;
+                                padding: 10px 10px;
+                                margin-top: 5px;
+                                text-align: center;
+                                font-size: 1.5vw;
+                                font-weight: 500;
+                                display: inline-block;
+                                background-color: #e7dfd5;
+                            }
+
+                            #btn:hover[type="submit"] {
+                                color: white;
+                                background: #e8015a;
+
+                            }
+                        </style>
+                        <input type="submit" value="Add this package" id="btn">
+                    </div>
+                </form>
+            </figure>
+        </div>
+    </div>
+</div>

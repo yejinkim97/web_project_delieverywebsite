@@ -17,6 +17,13 @@ Pick a package,
             <p>{{this.content}}<br><b><i>{{this.price}}</i></b></p>
         </figure>
         {{/each}}
+        {{#each add}}
+        <figure>
+            <img class="food" src="/img/{{this.img}}"  />
+            <h3>{{this.name}}</h3>
+            <p>{{this.description}}<br><b><i>{{this.price}}</i></b></p>
+        </figure>
+        {{/each}}
 
     </div>
 
