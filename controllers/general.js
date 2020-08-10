@@ -1,32 +1,28 @@
 const express = require("express");
 const router = express.Router();
-const { hows} = require("../models/data");
-
-const bcrypt = require("bcryptjs");
+const { hows } = require("../models/data");
 const session = require("client-sessions");
-//Setup client-sessions
+
 router.use(
   session({
-    cookieName: "session", 
-    secret: `${process.env.SECRET_SESSION}`, 
-    duration: 5 * 60 * 1000, 
+    cookieName: "session",
+    secret: `${process.env.SECRET_SESSION}`,
+    duration: 5 * 60 * 1000,
     activeDuration: 1000 * 60,
   })
 );
 const db = require("../models/db");
-const { addPackage, getDataMeal } = require("../models/db");
+const { getDataMeal } = require("../models/db");
 router.get("/", (req, res) => {
   const fakehow = new hows();
 
-  
-  getDataMeal()
-  .then((data) => {
-  res.render("general/home", {
-
-    how: fakehow.gethow(),
-    add: data.length != 0 ? data : undefined,
-    title: "Healthy & Fresh",
-  });})
+  getDataMeal().then((data) => {
+    res.render("general/home", {
+      how: fakehow.gethow(),
+      add: data.length != 0 ? data : undefined,
+      title: "Healthy & Fresh",
+    });
+  });
 });
 
 router.get("/signup", (req, res) => {
@@ -101,7 +97,6 @@ function ensureLogin(req, res, next) {
   }
 }
 
-
 router.get("/cdashboard", ensureLogin, (req, res) => {
   res.render("general/cdashboard", {
     title: "Healthy & Fresh welcome",
@@ -139,11 +134,8 @@ router.post("/login", (req, res) => {
       .then((inData) => {
         req.session.user = inData[0];
         console.log(req.session.user);
-        if (req.session.user.customer) {
-          res.redirect("/udashboard");
-        } else {
-          res.redirect("/udashboard");
-        }
+
+        res.redirect("/udashboard");
       })
       .catch((message) => {
         console.log(message);
@@ -152,12 +144,8 @@ router.post("/login", (req, res) => {
           title: "Healthy & Fresh Sign up",
           errorMessages: errors,
         });
-        
       });
   }
 });
-
-
-
 
 module.exports = router;

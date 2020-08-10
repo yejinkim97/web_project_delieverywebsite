@@ -20,9 +20,11 @@ Pick a package,
         {{/each}} -->
         {{#each add}}
         <figure>
-            <img class="food" src="/img/{{this.img}}"  />
+            <img class="food" src="/img/{{this.img}}" />
             <h3>{{this.name}}</h3>
-            <p>{{this.description}}<br><b><i>from ${{this.price}}</i></b></p>
+            <p>{{this.description}}<br><b><i>${{this.price}}</i></b></p>
+            <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/detail?name={{name}}"
+                class="btn btn-primary">View Package -></a>
         </figure>
         {{/each}}
 

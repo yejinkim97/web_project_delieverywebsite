@@ -6,25 +6,17 @@
 </div>
 
 <div class="week">
-
     <div class="grid2">
-       
         {{#each add}}
         <figure>
             <img class="food" src="/img/{{this.img}}" />
             <h3>{{this.name}}</h3>
             <p>{{this.description}}<br><b><i>from ${{this.price}}</i></b></p>
-
             <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/edit?name={{name}}"
                 class="btn btn-primary">Edit</a>
-
-
             <a class="button" style="text-decoration:none; font-size:1vw;" href="/product/delete?name={{name}}"
                 class="btn btn-primary">Delete</a>
-
         </figure>
         {{/each}}
-
     </div>
-
 </div>

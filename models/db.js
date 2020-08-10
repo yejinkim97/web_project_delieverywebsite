@@ -25,7 +25,7 @@ let users = new Schema({
     type: String,
     required: true,
   },
-  customer: Boolean,
+  clerk: Boolean,
 });
 
 let mealPackage = new Schema({
@@ -41,6 +41,9 @@ let mealPackage = new Schema({
   description: {
     type: String,
     required: true,
+  },
+  detail: {
+    type: String,
   },
   category: {
     type: String,
@@ -101,8 +104,8 @@ users.pre("save", function (next) {
 
 const save = function (data) {
   return new Promise((resolve, reject) => {
-    data.customer = data.customer ? true : false;
-    data.top = data.top ? true : false;
+    data.clerk = data.clerk ? true : false;
+
     let user = new Users(data);
     user.save((err) => {
       if (err) {
@@ -186,6 +189,7 @@ const editMeal = (editData) => {
           $set: {
             price: editData.price,
             description: editData.description,
+            detail: editData.detail,
             category: editData.category,
             numOfMeal: editData.numOfMeal,
             top: editData.top,

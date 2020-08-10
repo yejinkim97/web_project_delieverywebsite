@@ -43,7 +43,6 @@ ul li :active {
   vertical-align: middle;
   text-transform: uppercase;
   text-align: right;
-
 }
 
 .prep {
@@ -119,7 +118,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
- /* background-color: #e7dfd5;*/
+  /* background-color: #e7dfd5;*/
 }
 .footermenu {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -421,13 +420,13 @@ pre {
     left: 30%;
     transform: translate(0%);
     font-size: 40px;
-}
-.prep img {
-  width: 120%;
-}
-pre{
-  font-size: 40px;
-}
+  }
+  .prep img {
+    width: 120%;
+  }
+  pre {
+    font-size: 40px;
+  }
   .menu {
     width: 85%;
   }
@@ -543,7 +542,7 @@ pre{
     top: 0%;
     font-size: 30px;
   }
-  pre{
+  pre {
     font-size: 27px;
   }
   h1 {
@@ -566,13 +565,13 @@ pre{
   }
 }
 /*dashboard page*/
-.dashboard{
+.dashboard {
   text-align: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(71, 67, 67);
-font-size: 40px;
-background-color: #e7dfd5;
+  font-size: 40px;
+  background-color: #e7dfd5;
 }
-.add{
+.add {
   padding: 0 0 0 0px;
 }

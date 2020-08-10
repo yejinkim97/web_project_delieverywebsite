@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const multer = require("multer");
-
+const bodyParser = require("body-parser");
+router.use(bodyParser.json());
 const {
   addPackage,
   getDataMeal,
@@ -28,7 +29,6 @@ const imageFilter = (req, file, cb) => {
 
 const upload = multer({ storage: storage, fileFilter: imageFilter });
 
-// fix database files and finish the router and as4
 router.get("/meals", (req, res) => {
   getDataMeal()
     .then((data) => {
@@ -44,7 +44,7 @@ router.get("/meals", (req, res) => {
 });
 
 function ensureAdmin(req, res, next) {
-  if (!req.session.user || req.session.user.customer) {
+  if (!req.session.user || !req.session.user.clerk) {
     res.redirect("/login");
   } else {
     next();
@@ -93,10 +93,22 @@ router.post("/add", ensureAdmin, upload.single("img"), (req, res) => {
       });
     });
 });
+router.use((err, req, res, next) => {
+  if (err) {
+    let errors = [];
+    errors.push("Please enter all the fields correctly");
+    console.log(err.message);
+    res.status(500).render("product/addpackages", {
+      title: "Healthy & Fresh Meals",
+      errorMessages: errors,
+    });
+  } else {
+    res.status(404).send("No page found by that route");
+  }
+});
 
-router.get("/delete", (req, res) => {
+router.get("/delete", ensureAdmin, (req, res) => {
   if (req.query.name) {
-    
     deletemeal(req.query.name)
       .then(() => {
         res.redirect("/udashboard");
@@ -120,11 +132,14 @@ router.get("/delete", (req, res) => {
   }
 });
 
-router.get("/edit", (req, res) => {
+router.get("/edit", ensureAdmin, (req, res) => {
   if (req.query.name) {
     getMeal(req.query.name)
       .then((result) => {
-        res.render("product/edit", { data: result[0] });
+        res.render("product/edit", {
+          data: result[0],
+          title: "Healthy & Fresh Meals",
+        });
       })
       .catch(() => {
         console.log("couldn't find");
@@ -133,7 +148,7 @@ router.get("/edit", (req, res) => {
   } else res.redirect("/udashboard");
 });
 
-router.post("/edit", (req, res) => {
+router.post("/edit", ensureAdmin, (req, res) => {
   editMeal(req.body)
     .then(() => {
       res.redirect("/udashboard");
@@ -145,4 +160,66 @@ router.post("/edit", (req, res) => {
     });
 });
 
+router.get("/detail", (req, res) => {
+  if (req.query.name) {
+    getMeal(req.query.name)
+      .then((result) => {
+        res.render("product/detail", {
+          data: result[0],
+          title: "Healthy & Fresh Meals",
+        });
+      })
+      .catch(() => {
+        console.log("couldn't find");
+        res.redirect("/");
+      });
+  } else res.redirect("/udashboard");
+});
+
+router.get("/cart", ensureLogin, (req, res) => {
+  res.render("product/cart", {
+    data: usercart,
+    title: "Shopping Cart",
+  });
+});
+function ensureLogin(req, res, next) {
+  if (!req.session.user) {
+    res.redirect("/login");
+  } else {
+    next();
+  }
+}
+var usercart = [];
+
+router.post("/addProduct", ensureLogin, (req, res) => {
+  const { name, price, img } = req.body;
+  usercart.push({ name: name, price: price, img: img });
+
+  res.render("product/cart", {
+    data: usercart,
+    title: "Shopping Cart",
+  });
+});
+
+router.post("/removeItem", (req, res) => {
+  for (var i = 0; i < usercart.length; i++) {
+    usercart.splice(i, 1);
+    i = usercart.length;
+  }
+
+  res.render("product/cart", {
+    data: usercart,
+    title: "Shopping Cart",
+  });
+});
+router.post("/place", (req, res) => {
+  for (var i = 0; i < usercart.length; i++) {
+    usercart.splice(i);
+    i = usercart.length;
+  }
+  res.render("product/cart", {
+    data: usercart,
+    title: "Shopping Cart",
+  });
+});
 module.exports = router;

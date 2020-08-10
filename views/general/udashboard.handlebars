@@ -1,8 +1,12 @@
-<section class = "dashboard">
-    Hello, {{user.fname}} {{user.lname}} <br><br> 
-    {{#unless user.customer}}
-    <a href="/product/view" class="button"style="text-decoration:none;">View Meal Packages</a><br> 
-    {{/unless}}
-    <a href="/logout" class="button" style="text-decoration:none;">Logout</a><br>
-   
+<section class="dashboard">
+  Hello, {{user.fname}} {{user.lname}} <br><br>
+  <p>Welcome to your dashboard</p>
+  <p>Here is the information we have on file for you:</p>
+  <h4>username: {{user.username}}</h4>
+  <h4>email: {{user.email}}</h4>
+  {{#if user.clerk}}
+  <a href="/product/view" class="button" style="text-decoration:none;">View Meal Packages</a><br>
+  {{/if}}
+  <a href="/logout" class="button" style="text-decoration:none;">Logout</a><br>
+
 </section>

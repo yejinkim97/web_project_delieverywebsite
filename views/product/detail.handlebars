@@ -1,0 +1,55 @@
+<div style="padding-top: 30px;
+padding-bottom: 50px; ">
+    <div class="container">
+
+        <div class="grid3">
+            <figure>
+                <img style="width: auto;" src="/img/{{data.img}}" />
+
+            </figure>
+            <figure>
+                <form method="POST" action="/product/addProduct">
+                    <input type="hidden" name="name" value="{{data.name}}">
+                    <input type="hidden" name="price" value="{{data.price}}">
+                    <input type="hidden" name="img" value="{{data.img}}">
+                    <h1 style="text-align: left;">{{data.name}}</h1>
+                    {{#if data.top}}
+                    <span class="text-danger"><b>*Top Meal</b></span>
+                    {{/if}}
+                    <p style=" text-transform: none; font-size:20px; color:black"> {{data.description}}<span
+                            style="	color: brown"><br>
+                            {{data.detail}}<br>
+                        </span>
+                    <div style="color: #417405;">${{data.price}}.00</div><br>
+                    <span style="color: #417405;">{{data.numOfMeal}}</span> Meals
+
+                    </p>
+                    <div class="row" style="text-align: center;">
+                        <style>
+                            #btn {
+                                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                                border: 2px solid #e8015a;
+                                border-radius: 10px;
+                                color: #e8015a;
+                                padding: 10px 10px;
+                                margin-top: 5px;
+                                text-align: center;
+                                font-size: 1.5vw;
+                                font-weight: 500;
+                                display: inline-block;
+                                background-color: #e7dfd5;
+                            }
+
+                            #btn:hover[type="submit"] {
+                                color: white;
+                                background: #e8015a;
+
+                            }
+                        </style>
+                        <input type="submit" value="ADD TO CART" id="btn">
+                    </div>
+                </form>
+            </figure>
+        </div>
+    </div>
+</div>
